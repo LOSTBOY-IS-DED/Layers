@@ -27,7 +27,7 @@ export default function Hero() {
             <p className="text-center text-xl text-white/50 mt-8 max-w-2xl mx-auto">Design tools shouldn&apos;t slow you down. Layers combines powerful features with an intuitive interface that keeps you in your creative flow.</p>
         </div>
         <form className="flex border border-white/15 rounded-full p-2 mt-8 max-w-lg mx-auto ">
-            <input type="email" placeholder="Enter you email " className="bg-transparent px-4 flex-1" />
+            <input type="email" placeholder="Enter you email " className="bg-transparent px-4 flex-1 w-full" />
             <Button variant="primary" type="submit" className="whitespace-nowrap" size="sm">Sign Up </Button>
         </form>
     </section>;
