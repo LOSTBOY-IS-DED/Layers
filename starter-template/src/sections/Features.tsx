@@ -1,4 +1,11 @@
+import FeatureCard from "@/components/FeatureCard";
 import Tag from "@/components/Tag";
+
+import avatar1 from "@/assets/images/avatar-ashwin-santiago.jpg";
+import avatar2 from "@/assets/images/avatar-lula-meyers.jpg";
+import avatar3 from "@/assets/images/avatar-florence-shaw.jpg";
+import Image from "next/image";
+import Avatar from "@/components/Avatar";
 
 const features = [
     "Asset Library",
@@ -15,39 +22,52 @@ export default function Features() {
         <section className="py-24">
             <div className="container">
                 <div className="flex justify-center">
-                <Tag>Features</Tag>
+                    <Tag>Features</Tag>
                 </div>
                 <h2 className="text-6xl font-medium text-center mt-6">
-                    Where power meets <span className="text-lime-400">simplicity</span>{" "}
+                    Where power meets{" "}
+                    <span className="text-lime-400">simplicity</span>{" "}
                 </h2>
-                <div>
-                    <div>
-                        <div></div>
-                        <div>
-                            <h3>Real Time Collaboration</h3>
-                            <p>Work Together with conflict-free team editing</p>
+                <div className="mt-12 grid grid-cols-1 gap-8">
+                    <FeatureCard
+                        title="Real Time Collaboration"
+                        description="Work Together with conflict-free team editing"
+                    >
+                        <div className="aspect-video flex items-center justify-center">
+                        <Avatar className="z-40" >
+                            <Image src={avatar1} alt="avatar 1" className="rounded-full" />
+                        </Avatar>
+                        <Avatar className="-ml-6 border-indigo-500 z-30">
+                            <Image src={avatar2} alt="avatar 2" className="rounded-full" />
+                        </Avatar>
+                        <Avatar className="-ml-6 border-amber-500 z-20">
+                            <Image src={avatar3} alt="avatar 3" className="rounded-full" />
+                        </Avatar>
+                        <Avatar className="-ml-6 border-transparent"> 
+                            <div className="size-full bg-neutral-700 rounded-full inline-flex items-center justify-center gap-1">
+                                {/* <span></span>
+                                <span></span>
+                                <span></span> */}
+                                {Array.from({length : 3}).map((_, i)=>(
+                                    <span className="size-1.5 rounded-full bg-white inline-flex" key={i}></span>
+                                ))}
+                            </div>
+                        </Avatar>
                         </div>
-                    </div>
-                    <div>
-                        <div></div>
-                        <div>
-                            <h3>Interactive Prototyping</h3>
-                            <p>
-                                Engage your clients with prototypes that react
-                                to user actions
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div></div>
-                        <div>
-                            <h3>Keyboard Quick Actions</h3>
-                            <p>
-                                Powerful commands to help you create designs
-                                more quickly
-                            </p>
-                        </div>
-                    </div>
+                        
+                    </FeatureCard>
+
+                    <FeatureCard
+                        title="Interactive Prototyping"
+                        description="Engage your clients with prototypes that react
+                                to user actions"
+                    ></FeatureCard>
+
+                    <FeatureCard
+                        title="Keyboard Quick Actions"
+                        description="Powerful commands to help you create designs
+                                more quickly"
+                    ></FeatureCard>
                 </div>
                 <div>
                     {features.map((feature) => (
