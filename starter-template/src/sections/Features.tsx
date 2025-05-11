@@ -6,6 +6,7 @@ import avatar2 from "@/assets/images/avatar-lula-meyers.jpg";
 import avatar3 from "@/assets/images/avatar-florence-shaw.jpg";
 import Image from "next/image";
 import Avatar from "@/components/Avatar";
+import Key from "@/components/Key"
 
 const features = [
     "Asset Library",
@@ -72,10 +73,10 @@ export default function Features() {
                         description="Powerful commands to help you create designs
                                 more quickly"
                     >
-                        <div className="aspect-video flex items-center justify-center">
-                            <div>Shift</div>
-                            <div>Alt</div>
-                            <div>C</div>
+                        <div className="aspect-video flex items-center justify-center gap-4">
+                            <Key className="w-28">shift</Key>
+                            <Key>alt</Key>
+                            <Key>c</Key>
                         </div>
                     </FeatureCard>
                 </div>
