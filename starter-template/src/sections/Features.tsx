@@ -29,10 +29,11 @@ export default function Features() {
                     Where power meets{" "}
                     <span className="text-lime-400">simplicity</span>{" "}
                 </h2>
-                <div className="mt-12 grid grid-cols-1 gap-8">
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
                     <FeatureCard
                         title="Real Time Collaboration"
                         description="Work Together with conflict-free team editing"
+                        className="col-span-2"
                     >
                         <div className="aspect-video flex items-center justify-center">
                         <Avatar className="z-40" >
@@ -62,6 +63,7 @@ export default function Features() {
                         title="Interactive Prototyping"
                         description="Engage your clients with prototypes that react
                                 to user actions"
+                        className="col-span-2"
                     >
                         <div className="aspect-video flex items-center justify-center">
                             <p className="text-4xl font-extrabold text-white/20 text-center">We've achieved <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">incredible</span> growth this year</p>    
@@ -72,6 +74,7 @@ export default function Features() {
                         title="Keyboard Quick Actions"
                         description="Powerful commands to help you create designs
                                 more quickly"
+                        className="col-span-2 col-start-2"
                     >
                         <div className="aspect-video flex items-center justify-center gap-4">
                             <Key className="w-28">shift</Key>
