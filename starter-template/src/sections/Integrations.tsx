@@ -7,6 +7,7 @@ import framerIcon from "@/assets/images/framer-logo.svg";
 import githubIcon from "@/assets/images/github-logo.svg";
 import { ImageResponse } from "next/server";
 import Image from "next/image";
+import IntegrationColumn from "@/components/IntegrationCloumn";
 
 
 const integrations = [
@@ -42,23 +43,21 @@ const integrations = [
     },
 ];
 
+export type IntegrationType = typeof integrations;
+
 export default function Integrations() {
     return <section className="py-24 overflow-hidden">
         <div className="container">
+            <div className="grid lg:grid-cols-2 items-center lg:gap-16">
+            <div>
             <Tag>Integrations</Tag>
             <h2 className="text-6xl font-medium mt-6">Plays well with <span className="text-lime-400">others</span></h2>
             <p className="text-white/50 mt-4 text-lg">Layers seamlessly connects with your favorite tool, making it easy to plug into any workflow and collaborate across platform </p>
-            <div className="h-[400px] mt-8 overflow-hidden [mask-image:linear-gradient(to_bottom,_transparent_0%,_black_10%,_black_90%,_transparent_100%)]">
-            <div className="flex flex-col gap-4 pb-4">
-                {integrations.map(integration => (
-                    <div key={integration.name} className="bg-neutral-900 border border-white/10 rounded-3xl p-6">
-                        <div className="flex justify-center">
-                            <Image src={integration.icon} alt={integration.name} className="size-24" />
-                        </div>
-                        <h3 className="text-3xl text-center mt-6">{integration.name}</h3>
-                        <p className="text-center text-white/50 mt-2">{integration.description}</p>
-                    </div>
-                ))}
+            </div>
+            
+            <div className="h-[400px] lg:h-[800px] mt-8 lg:mt-0 grid md:grid-cols-2 gap-4 overflow-hidden [mask-image:linear-gradient(to_bottom,_transparent_0%,_black_10%,_black_90%,_transparent_100%)]">
+            <IntegrationColumn integrations={integrations} />
+            <IntegrationColumn integrations={integrations.slice().reverse()} className="hidden md:flex" />
             </div>
             </div>
         </div>
