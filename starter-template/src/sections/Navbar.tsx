@@ -1,6 +1,9 @@
+"use client";
 import Image from "next/image";
 import logoImage from "@/assets/images/logo.svg";
 import Button from "@/components/Button";
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 const navLinks = [
     { label: "Home", href: "#" },
@@ -10,9 +13,12 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-    return <section className="py-4 lg:py-8">
+
+    const[isOpen , setIsOpen] = useState(false);
+
+    return <section className="py-4 lg:py-8 sticky top-0 z-50">
         <div className="container max-w-5xl">
-            <div className="grid grid-cols-2 lg:grid-cols-3 border border-white/15 rounded-full p-2 px-4 md:pr-2 items-center">
+            <div className="grid grid-cols-2 lg:grid-cols-3 border border-white/15 rounded-full p-2 px-4 md:pr-2 items-center bg-neutral-950/70 backdrop:blur">
                 <div>
                     <Image src={logoImage} alt="layers logo" className="h-9 w-auto md:h-auto" />
                 </div>
@@ -34,10 +40,14 @@ export default function Navbar() {
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
-                className="feather feather-menu md:hidden cursor-pointer ">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                className="feather feather-menu md:hidden cursor-pointer "
+                onClick={() => {
+                    setIsOpen(!isOpen)
+                }}
+                >
+                    <line x1="3" y1="6" x2="21" y2="6" className={twMerge( "origin-left transition" , isOpen && "rotate-45 -translate-y-1")}></line>
+                    <line x1="3" y1="12" x2="21" y2="12" className={twMerge("transition", isOpen && "opacity-0")}></line>
+                    <line x1="3" y1="18" x2="21" y2="18" className={twMerge( "origin-left transition" , isOpen && "-rotate-45 translate-y-1")} ></line>
                 </svg>
                 <Button variant="secondary" className="hidden md:inline-flex items-center">Log In </Button>
                 <Button variant="primary" className="hidden md:inline-flex items-center">Sign Up </Button>
