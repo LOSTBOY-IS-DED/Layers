@@ -4,6 +4,7 @@ import logoImage from "@/assets/images/logo.svg";
 import Button from "@/components/Button";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { AnimatePresence , motion } from "framer-motion";
 
 const navLinks = [
     { label: "Home", href: "#" },
@@ -16,9 +17,11 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <section className="py-4 lg:py-8 sticky top-0 z-50">
+        <>
+        
+        <section className="py-4 lg:py-8 fixed w-full top-0 z-50">
             <div className="container max-w-5xl">
-                <div className="border border-white/15 rounded-[27px] bg-neutral-950/70 backdrop:blur">
+                <div className="border border-white/15 rounded-[27px] md:rounded-full bg-neutral-950/70 backdrop:blur">
                     {/* grid holding our logo and other things */}
                     <div className="grid grid-cols-2 lg:grid-cols-3  p-2 px-4 md:pr-2 items-center">
                         <div>
@@ -101,21 +104,35 @@ export default function Navbar() {
                 <button>Sign Up</button> */}
                         </div>
                     </div>
+                    <AnimatePresence>
                     {isOpen && (
-                        <div className="flex flex-col items-center">
+                        <motion.div
+                            initial={{height : 0}}
+                            animate={{height : "auto"}}
+                            exit={{height: 0}}
+                         className="overflow-hidden"> 
+
+                            <div className="flex flex-col items-center gap-4 py-4 ">
                             {navLinks.map((link) => (
                                 <a
-                                    className="py-2"
+                                    className=""
                                     href={link.href}
                                     key={link.label}
                                 >
                                     {link.label}
                                 </a>
                             ))}
-                        </div>
+                            <Button variant="secondary">Log In</Button>
+                            <Button variant="primary">Sign up</Button>
+                            </div>
+                            
+                        </motion.div>
                     )}
+                    </AnimatePresence>
                 </div>
             </div>
         </section>
+        <div className="pb-[86px] md:pb-[98px] lg:pb-[130px]"></div>
+        </>
     );
 }
