@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
     title: "Layers",
     description: "The cool looking landing page for your next sass product",
+    icons : {
+        icon : "./logo.png"
+    }
 };
 
 export default function RootLayout({
