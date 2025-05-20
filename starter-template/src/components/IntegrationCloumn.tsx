@@ -19,7 +19,7 @@ export default function IntegrationColumn(props: {
             }}
             animate={{ y: reverse ? 0 : "-50%" }}
             transition={{
-                duration: 15,
+                duration: 20,
                 repeat: Infinity,
                 ease: "linear",
             }}
